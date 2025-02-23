@@ -1,0 +1,36 @@
+body {
+  background-color: beige;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  transition: background 0.5s ease-in-out;
+}
+
+#thumbnail-container {
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transform: translate(-50px, -50px);
+}
+
+#thumbnail-container img {
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+#background-image img {
+  height: 800px;
+  width: 600px;
+}
+
+.thumbnail-container img:focus,
+.thumbnail-container:hover {
+  border: 2px solid white;
+  outline: none;
+}
