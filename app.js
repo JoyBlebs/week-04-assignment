@@ -1,4 +1,4 @@
-console.log("hello world");
+console.log("Here's my output");
 
 let imageIndex = 0;
 
@@ -48,18 +48,12 @@ function createThumbnails() {
 }
 
 function createBackgroundImage(currentImage) {
-  backgroundImage.innerHTML = "";
+  backgroundImage.style.backgroundImage = `url(${currentImage.src})`;
+  backgroundImage.style.backgroundSize = "cover";
+  backgroundImage.style.backgroundPosition = "center";
+  backgroundImage.style.transition = "background-image 0.5s ease-in-out";
+
   console.log("The thing passed in is", currentImage);
-
-  const bigImgTag = document.createElement("img");
-  bigImgTag.src = currentImage.src;
-  bigImgTag.alt = currentImage.alt;
-
-  backgroundImage.appendChild(bigImgTag);
-}
-
-function updateBackgroundImage() {
-  createBackgroundImage(images[imageIndex]);
 }
 
 prevButton.addEventListener("click", function () {
@@ -71,3 +65,19 @@ nextButton.addEventListener("click", function () {
   imageIndex = imageIndex < images.length - 1 ? imageIndex + 1 : 0;
   updateBackgroundImage();
 });
+
+document.addEventListener("keydown", function (event) {
+  if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+    imageIndex = imageIndex < images.length - 1 ? imageIndex + 1 : 0;
+    updateBackgroundImage();
+  } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+    imageIndex = imageIndex > 0 ? imageIndex - 1 : images.length - 1;
+    updateBackgroundImage();
+  }
+});
+
+function updateBackgroundImage() {
+  createBackgroundImage(images[imageIndex]);
+}
+
+createThumbnails();

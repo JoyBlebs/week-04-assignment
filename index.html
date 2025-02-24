@@ -8,9 +8,20 @@
     <script src="app.js" defer></script>
   </head>
 
-  <body>
-    <div id="thumbnail-container"></div>
+  <>
+    <div
+      id="thumbnail-container"
+      aria-label="image gallery of five street photography photos"
+    ></div>
 
-    <div id="background-image"></div>
+    <div
+      id="background-image"
+      aria-label="enlarged image of selected gallery photo"
+      aria-live="polite">
+  
+  <button id="prev" aria-label="Previous image">Previous</button>
+  <button id="next" aria-label="Next image">Next</button>
+</div>
+
   </body>
 </html>
